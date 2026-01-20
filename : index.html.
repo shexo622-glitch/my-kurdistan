@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELDAR - Kurdistan Project</title>
+    <style>
+        /* خلفية الشلال */
+        body { 
+            margin: 0; padding: 0; min-height: 100vh; 
+            background-image: url("https://i.ibb.co/L9H8b1n/waterfall-bg.jpg"); 
+            background-size: cover; background-position: center; 
+            background-attachment: fixed; display: flex; 
+            flex-direction: column; align-items: center; 
+            font-family: sans-serif; color: white; 
+        }
+
+        /* اسمك DELDAR */
+        .header-name { 
+            text-align: center; padding: 20px; color: #ffcc00; 
+            font-size: 3.5em; text-shadow: 3px 3px 10px rgba(0,0,0,0.9); margin: 0; 
+        }
+
+        /* الحاوية الرئيسية الشفافة */
+        .main-container { 
+            background: rgba(0, 0, 0, 0.7); padding: 25px; 
+            border-radius: 25px; text-align: center; 
+            backdrop-filter: blur(10px); border: 2px solid #ffcc00; 
+            width: 90%; max-width: 600px; margin-bottom: 50px; 
+        }
+
+        /* الخريطة */
+        .map-img { 
+            width: 100%; border-radius: 10px; margin: 15px 0; 
+            border: 1px solid #ffcc00; box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+        }
+
+        /* الأعلام */
+        .flags-box { 
+            display: flex; justify-content: space-around; 
+            align-items: center; margin-top: 20px; 
+        }
+        .flag-small { 
+            width: 110px; border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+        }
+
+        /* العبارة والنشيد */
+        .quote { color: #ffcc00; font-style: italic; font-size: 1.5em; margin: 20px 0; }
+        .math { font-size: 1.5em; background: rgba(255,0,0,0.4); padding: 5px 15px; border-radius: 10px; display: inline-block; margin-bottom: 15px; }
+        audio { width: 100%; border-radius: 50px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1 class="header-name">DELDAR ☀️</h1>
+
+    <div class="main-container">
+        <h3 style="margin: 0;">نەخشەی کوردستانی گەورە</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kurdish_inhabited_area_by_CIA_%281992%29.png/800px-Kurdish_inhabited_area_by_CIA_%281992%29.png" class="map-img">
+        
+        <div class="flags-box">
+            <div>
+                <img src="https://raw.githubusercontent.com/stevenliuyi/animated-flags/master/flags/kurdistan.gif" class="flag-small">
+                <p>Kurdistan</p>
+            </div>
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_the_Syrian_Democratic_Forces.svg/1200px-Flag_of_the_Syrian_Democratic_Forces.svg.png" class="flag-small">
+                <p>QSD / SDF</p>
+            </div>
+        </div>
+        
+        <h2 class="quote">kûrdstan welateke nabê be çwar</h2>
+        <div class="math">(2+2=1)</div>
+        
+        <p>سروودی نیشتمانی ئەی ڕەقیب</p>
+        <audio controls autoplay>
+            <source src="https://www.saradistribution.com/Anthem-Kurdistan.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+</body>
+</html>
