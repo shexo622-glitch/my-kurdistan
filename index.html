@@ -78,43 +78,11 @@
             <source src="https://www.saradistribution.com/Anthem-Kurdistan.mp3" type="audio/mpeg">
         </audio>
     </div>
-
-</body>
+/body>
 </html>
 <div style="background: white; color: black; padding: 20px; border-radius: 10px; margin: 20px; direction: rtl;">
     <h3>آخر أخبار كوردستان ☀️</h3>
     <p id="news-text">أهلاً بكم في موقع أخبار كوردستان الرسمي.</p>
     
     <hr>
-    
-    <button onclick="like()" style="background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 5px;">
-        ❤️ إعجاب (<span id="like-count">0</span>)
-    </button>
-
-    <h4>التعليقات:</h4>
-    <div id="comments-box" style="background: #f1f1f1; padding: 10px; margin-bottom: 10px;">
-        لا توجد تعليقات بعد..
-    </div>
-    
-    <input type="text" id="comment-input" placeholder="اكتب تعليقك هنا..." style="width: 80%; padding: 5px;">
-    <button onclick="addComment()" style="background: #27ae60; color: white; border: none; padding: 5px 10px;">نشر</button>
-</div>
-
-<script>
-    let likes = 0;
-    function like() {
-        likes++;
-        document.getElementById('like-count').innerText = likes;
-    }
-
-    function addComment() {
-        let input = document.getElementById('comment-input');
-        if(input.value !== "") {
-            let box = document.getElementById('comments-box');
-            if(box.innerText === "لا توجد تعليقات بعد..") box.innerText = "";
-            box.innerHTML += "<div><b>متابع:</b> " + input.value + "</div>";
-            input.value = "";
-        }
-    }
-</script>
 
