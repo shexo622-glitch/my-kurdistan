@@ -1,67 +1,9 @@
-<div class="name-container">
-    <div class="mountain-bg">🏔️</div>
-    
-    <h1 class="dildar-name">
-        DILDA<span class="sun-wrapper">R<span class="sun-emoji">☀️</span></span>
-    </h1>
-</div>
-
-<style>
-    .name-container {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .mountain-bg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 120px; /* حجم الجبل خلف الاسم */
-        opacity: 0.3; /* شفافية الجبل لكي يظهر الاسم بوضوح */
-        z-index: 1;
-    }
-
-    .dildar-name {
-        position: relative;
-        font-size: 60px;
-        color: #FFD700;
-        font-weight: bold;
-        text-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
-        z-index: 2;
-        margin: 0;
-        letter-spacing: 5px;
-    }
-
-    .sun-wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    .sun-emoji {
-        position: absolute;
-        top: -30px; /* رفع الشمس فوق حرف R */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 25px;
-        animation: rotateSun 5s linear infinite;
-    }
-
-    @keyframes rotateSun {
-        from { transform: translateX(-50%) rotate(0deg); }
-        to { transform: translateX(-50%) rotate(360deg); }
-    }
-</style>
-
 <style>
     body {
         margin: 0;
         padding: 0;
-        /* صورة الجبل و العلم كخلفية */
-        background: url('https://i.ibb.co/CByYk5g/kurdistan-mountain-flag.jpg') no-repeat center center fixed;
+        /* استخدام رابط مباشر للصورة لكي تظهر فوراً */
+        background: #000 url('https://i.ibb.co/PzYfRzG/1000006872.jpg') no-repeat center center fixed;
         background-size: cover;
     }
 </style>
