@@ -1,93 +1,159 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DILDAR - KURDISTAN</title>
     <style>
+        * { box-sizing: border-box; }
         body {
-            background-color: #0b0f19;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.ibb.co/v4m8S8v/1000006870.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.75);
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
             padding: 20px;
-            overflow-x: hidden;
+            text-align: center;
         }
-        .header { text-align: center; margin-top: 20px; }
-        .name { font-size: 50px; color: #FFD700; font-weight: bold; letter-spacing: 5px; text-shadow: 0 0 15px #FFD700; }
-        .sub-title { font-size: 24px; margin-top: 10px; color: #f1f1f1; }
         
-        .map-container {
-            margin: 40px 0;
-            position: relative;
+        /* تصميم النافذة الترحيبية المتوهجة */
+        .welcome-modal {
+            display: flex;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
         }
-        .map-container img {
-            width: 320px;
-            filter: drop-shadow(0 0 30px #FFD700);
-            animation: glow 3s infinite alternate;
+        .modal-content {
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            padding: 30px;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 40px #FFD700;
+            max-width: 85%;
+            animation: glowPulse 2s infinite alternate;
         }
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px #FFD700); }
-            to { filter: drop-shadow(0 0 40px #FFD700); }
+        @keyframes glowPulse {
+            from { box-shadow: 0 0 20px #FFD700; }
+            to { box-shadow: 0 0 50px #FFD700; }
+        }
+        .modal-content h2 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-shadow: 0 0 10px gold;
+        }
+        .close-welcome {
+            background: #FFD700;
+            color: black;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 0 15px gold;
         }
 
+        .name { 
+            font-size: 50px; 
+            color: #FFD700; 
+            font-weight: bold; 
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+            margin-top: 20px;
+        }
+        .flag-img {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            border: 3px solid #FFD700;
+        }
         .enter-btn {
             background: linear-gradient(45deg, #d32f2f, #b71c1c);
             color: white;
-            padding: 15px 40px;
-            font-size: 22px;
+            padding: 15px 45px;
+            font-size: 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            border: 2px solid #ffffff33;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: 0.3s;
-            margin-bottom: 30px;
+            border: 2px solid #FFD700;
+            margin: 20px 0;
         }
-        .enter-btn:hover { transform: scale(1.1); background: #2e7d32; }
-
         .anthem-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.85);
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid #FFD700;
-            max-width: 400px;
-            text-align: center;
-            line-height: 1.8;
-            font-size: 16px;
+            border-top: 5px solid #FFD700;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 40px;
         }
-        .anthem-title { color: #FFD700; font-weight: bold; margin-bottom: 10px; display: block; }
-        
-        audio { margin-top: 15px; height: 30px; width: 250px; opacity: 0.7; }
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 15px;
+            color: #FFD700;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="modal-content">
+            <h2>بخێر هاتی بو مالبەری فەرمی دلدار</h2>
+            <button class="close-welcome" onclick="closeModal()">Dest pê bike</button>
+        </div>
+    </div>
+
+    <div class="overlay">
         <div class="name">DILDAR</div>
-        <div class="sub-title">☀️ KURDISTAN 🏔️</div>
+        <div style="font-size: 20px; margin-top: 10px;">☀️ KURDISTAN 🏔️</div>
+        
+        <img src="https://i.ibb.co/PzYfRzG/1000006872.jpg" class="flag-img">
+
+        <a href="feed.html" class="enter-btn">چوونه‌ژووره‌و ➔</a>
+
+        <div class="anthem-box">
+            <h2 style="color: #FFD700; margin-top: 0;">سروودی نەتەوەیی</h2>
+            <p>Ey reqîb her, maye qewmê kurd ziman...</p>
+            <audio controls style="width: 100%;">
+                <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="footer">
+            هەموو مافەکان پارێزراوە لسەر دەست دڵدار فاضل شيخموس<br>
+            2025/1/12
+        </div>
     </div>
 
-    <div class="map-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Kurdistan_Map_with_Flag.png" alt="Kurdistan Map">
-    </div>
-
-    <a href="feed.html" class="enter-btn">چوونه‌ژووره‌و ➔</a>
-
-    <div class="anthem-box">
-        <span class="anthem-title">Ey Reqîb (النشيد الوطني)</span>
-        Ey Reqîb her maye qewmê kurd ziman<br>
-        Naşikê û danayê bi topê zeman<br>
-        Kes nebê kurd dimrin, kurd jîn dibin<br>
-        Jîn dibin qet nakevê ala kurdan<br>
-        <audio controls autoplay loop>
-            <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
+    <script>
+        function closeModal() {
+            document.getElementById("welcomeModal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
 
