@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DILDAR - FEED</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            /* خلفية تعكس جمال الطبيعة في كردستان */
+            background: #1a1a1a url('https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006870.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; font-family: sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            min-height: 100vh;
+        }
+
+        /* الاسم مع الشمس فوق R والجبل خلفه */
+        .header-section { position: relative; margin-top: 30px; text-align: center; width: 100%; }
+        .mtn-back { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 100px; opacity: 0.2; z-index: 1; }
+        .main-name { font-size: 50px; color: #FFD700; font-weight: bold; text-shadow: 0 0 15px gold; position: relative; z-index: 2; margin: 0; }
+        .sun-top { position: absolute; top: -20px; right: -5px; font-size: 20px; animation: rotate 5s linear infinite; }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        /* منطقة المحتوى */
+        .feed-container {
+            width: 95%; max-width: 600px; margin-top: 40px;
+            background: rgba(0, 0, 0, 0.7); border-radius: 20px;
+            padding: 20px; border: 1px solid #FFD700; backdrop-filter: blur(10px);
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.1); border-radius: 15px;
+            padding: 15px; margin-bottom: 20px; border-right: 5px solid #2ecc71;
+        }
+
+        .post-card h3 { color: #FFD700; margin-top: 0; }
+
+        .nav-bar {
+            position: fixed; bottom: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.9); display: flex;
+            justify-content: space-around; padding: 15px;
+            border-top: 2px solid #FFD700;
+        }
+
+        .nav-item { color: white; text-decoration: none; font-weight: bold; font-size: 18px; }
+        .nav-item:hover { color: #FFD700; }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <div class="mtn-back">🏔️</div>
+        <h1 class="main-name">DILDA<span style="position:relative">R<span class="sun-top">☀️</span></span></h1>
+        <p>به‌خێربێیت بۆ لاپه‌ڕه‌ی تایبه‌ت ☀️</p>
+    </div>
+
+    <div class="feed-container">
+        <div class="post-card">
+            <h3>سڵاو جیهان!</h3>
+            <p>ئه‌مه‌ یه‌که‌م لاپه‌ڕه‌ی منه‌ که‌ به‌ Termux دروستم کردووه‌.</p>
+        </div>
+
+        <div class="post-card">
+            <h3>کوردستان نیشتیمانی جوان</h3>
+            <p>هه‌موو کات سه‌ربه‌رزم به‌ ناسنامه‌ی کوردی خۆم.</p>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-item">🏠 سه‌ره‌تا</a>
+        <a href="#" class="nav-item">📸 وێنه‌کان</a>
+        <a href="#" class="nav-item">👤 پڕۆفایل</a>
+    </nav>
+
+</body>
+</html>
+
