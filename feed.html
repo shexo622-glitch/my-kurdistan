@@ -3,178 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DILDAR - FEED</title>
+    <title>Instagram Style - Dildar</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 0;
-            /* خلفية تعكس جمال الطبيعة في كردستان */
-            background: #1a1a1a url('https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006870.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white; font-family: sans-serif;
-            display: flex; flex-direction: column; align-items: center;
-            min-height: 100vh;
-        }
-
-        /* الاسم مع الشمس فوق R والجبل خلفه */
-        .header-section { position: relative; margin-top: 30px; text-align: center; width: 100%; }
-        .mtn-back { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 100px; opacity: 0.2; z-index: 1; }
-        .main-name { font-size: 50px; color: #FFD700; font-weight: bold; text-shadow: 0 0 15px gold; position: relative; z-index: 2; margin: 0; }
-        .sun-top { position: absolute; top: -20px; right: -5px; font-size: 20px; animation: rotate 5s linear infinite; }
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
-
-        /* منطقة المحتوى */
-        .feed-container {
-            width: 95%; max-width: 600px; margin-top: 40px;
-            background: rgba(0, 0, 0, 0.7); border-radius: 20px;
-            padding: 20px; border: 1px solid #FFD700; backdrop-filter: blur(10px);
-        }
-
-        .post-card {
-            background: rgba(255, 255, 255, 0.1); border-radius: 15px;
-            padding: 15px; margin-bottom: 20px; border-right: 5px solid #2ecc71;
-        }
-
-        .post-card h3 { color: #FFD700; margin-top: 0; }
-
-        .nav-bar {
-            position: fixed; bottom: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.9); display: flex;
-            justify-content: space-around; padding: 15px;
-            border-top: 2px solid #FFD700;
-        }
-
-        .nav-item { color: white; text-decoration: none; font-weight: bold; font-size: 18px; }
-        .nav-item:hover { color: #FFD700; }
-    </style>
-</head>
-<body>
-
-    <div class="header-section">
-        <div class="mtn-back">🏔️</div>
-        <h1 class="main-name">DILDA<span style="position:relative">R<span class="sun-top">☀️</span></span></h1>
-        <p>به‌خێربێیت بۆ لاپه‌ڕه‌ی تایبه‌ت ☀️</p>
-    </div>
-
-    <div class="feed-container">
-        <div class="post-card">
-            <h3>سڵاو جیهان!</h3>
-            <p>ئه‌مه‌ یه‌که‌م لاپه‌ڕه‌ی منه‌ که‌ به‌ Termux دروستم کردووه‌.</p>
-        </div>
-
-        <div class="post-card">
-            <h3>کوردستان نیشتیمانی جوان</h3>
-            <p>هه‌موو کات سه‌ربه‌رزم به‌ ناسنامه‌ی کوردی خۆم.</p>
-        </div>
-    </div>
-
-    <nav class="nav-bar">
-        <a href="index.html" class="nav-item">🏠 سه‌ره‌تا</a>
-        <a href="#" class="nav-item">📸 وێنه‌کان</a>
-        <a href="#" class="nav-item">👤 پڕۆفایل</a>
-    </nav>
-
-</body>
-</html>
-
-<div class="post-card">
-    <h3>وێنەیەکی نوێ 📸</h3>
-    <img src="رابط_الصورة_هنا.jpg" style="width:100%; border-radius:10px;">
-    <p>وصف الصورة هنا...</p>
-</div>
-
-<div class="post-card">
-    <h3>ڤیدیۆیەکی تایبەت 🎥</h3>
-    <video controls style="width:100%; border-radius:10px;">
-        <source src="رابط_الفيديو_هنا.mp4" type="video/mp4">
-        المتصفح لا يدعم الفيديو.
-    </video>
-    <p>وصف الفيديو هنا...</p>
-</div>
-
-<div class="post-card">
-    <h3>ستوري جديد 📸</h3>
-    <img src="story1.jpg" style="width:100%; border-radius:15px; border: 2px solid #FFD700;">
-    <p>بژیت کوردستان ☀️</p>
-</div>
-<div class="post-card">
-    <h3>ڤیدیۆ ستۆری 🎥</h3>
-    <video controls style="width:100%; border-radius:15px; border: 2px solid #FFD700;">
-        <source src="video1.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-    </video>
-    <p>دیمەنێکی جوان 🏔️</p>
-</div>
-
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DILDAR GALLERY</title>
-    <style>
-        body {
-            margin: 0; background: #121212; color: white; font-family: sans-serif;
-            display: flex; flex-direction: column; align-items: center; padding-bottom: 80px;
-        }
-        .header { margin-top: 20px; text-align: center; }
-        .name { font-size: 40px; color: #FFD700; font-weight: bold; text-shadow: 0 0 10px gold; }
+        body { background-color: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
         
-        /* تصميم معرض الصور */
-        .gallery-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-            width: 95%; max-width: 600px; margin-top: 20px;
-        }
-        .media-card {
-            background: #1e1e1e; border: 1px solid #FFD700; border-radius: 12px;
-            overflow: hidden; position: relative; transition: 0.3s;
-        }
-        .media-card img, .media-card video { width: 100%; height: 180px; object-fit: cover; cursor: pointer; }
-        .media-card:hover { transform: scale(1.03); }
-        .label { padding: 5px; font-size: 12px; text-align: center; color: #FFD700; }
+        /* Header */
+        .header { height: 50px; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #262626; position: sticky; top: 0; background: #000; z-index: 100; justify-content: space-between; }
+        .logo { font-size: 20px; font-weight: bold; }
 
-        /* قائمة التنقل */
-        .nav-bar {
-            position: fixed; bottom: 0; width: 100%; background: #000;
-            display: flex; justify-content: space-around; padding: 15px;
-            border-top: 2px solid #FFD700; z-index: 100;
-        }
-        .nav-item { color: white; text-decoration: none; font-size: 16px; font-weight: bold; }
+        /* Stories Section */
+        .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 15px; }
+        .story { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
+        .story-ring { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; justify-content: center; align-items: center; }
+        .story-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; background: #333; }
+        .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
+
+        /* Post Section */
+        .post { border-bottom: 1px solid #262626; margin-bottom: 10px; }
+        .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
+        .user-icon { width: 32px; height: 32px; border-radius: 50%; background: #ffd700; }
+        .username { font-weight: bold; font-size: 14px; }
+        .post-img { width: 100%; display: block; }
+        .post-actions { padding: 10px; display: flex; gap: 15px; font-size: 20px; }
+        .post-info { padding: 0 10px 10px; }
+        .likes { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; }
+        .caption { font-size: 14px; line-height: 1.4; }
+        .caption b { margin-left: 5px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="name">DILDA<span style="position:relative">R<span style="position:absolute; top:-15px; right:-5px; font-size:15px;">☀️</span></span></div>
-        <p>گەلەری وێنە و ڤیدیۆکان 🏔️</p>
+        <div class="logo">Instagram</div>
+        <div style="font-size: 24px;">❤️ ✉️</div>
     </div>
 
-    <div class="gallery-grid">
-        <div class="media-card">
-            <img src="story1.jpg" alt="Photo" onclick="alert('وێنەی یەکەم')">
-            <div class="label">وێنەی نوێ 📸</div>
+    <div class="stories">
+        <div class="story">
+            <div class="story-ring"><div class="story-img"></div></div>
+            <span class="story-name">تۆ</span>
         </div>
-
-        <div class="media-card">
-            <img src="story2.jpg" alt="Photo">
-            <div class="label">کوردستان ☀️</div>
-        </div>
-
-        <div class="media-card" style="grid-column: span 2;">
-            <video controls>
-                <source src="video1.mp4" type="video/mp4">
-            </video>
-            <div class="label">ڤیدیۆی تایبەت 🎥</div>
+        <div class="story">
+            <div class="story-ring"><div class="story-img"></div></div>
+            <span class="story-name">kurd_design</span>
         </div>
     </div>
 
-    <nav class="nav-bar">
-        <a href="index.html" class="nav-item">🏠 سه‌ره‌تا</a>
-        <a href="#" class="nav-item" style="color:#FFD700;">📸 گه‌له‌ری</a>
-        <a href="#" class="nav-item">👤 پڕۆفایل</a>
-    </nav>
+    <div class="post">
+        <div class="post-header">
+            <div class="user-icon"></div>
+            <span class="username">dildar_official</span>
+        </div>
+        
+        <img src="kurdistan.jpg" class="post-img" alt="Post">
+
+        <div class="post-actions">
+            <span>❤️</span> <span>💬</span> <span>✈️</span>
+        </div>
+
+        <div class="post-info">
+            <span class="likes">٩٥٢ لایک</span>
+            <div class="caption">
+                <b>dildar_official</b> ئەمە یەکەم پۆستی منە لە ماڵپەڕە نوێیەکەم! ☀️🏔️
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
-<img src="kurdistan.jpg" style="width:100%; border-radius:10px;">
 
