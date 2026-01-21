@@ -3,37 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dildar - Stories 24h</title>
+    <title>Dildar - Official</title>
     <style>
         body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        /* Header */
         .header { height: 50px; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #262626; position: sticky; top: 0; background: #000; z-index: 100; justify-content: space-between; }
         .logo { font-size: 24px; font-weight: bold; color: #FFD700; }
+        .add-btn { font-size: 30px; cursor: pointer; color: #555; transition: 0.3s; }
+        .add-btn:hover { color: #fff; }
+
+        /* Stories Section */
         .stories { display: flex; padding: 15px 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 15px; scrollbar-width: none; }
         .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; cursor: pointer; }
-        /* ستايل لإخفاء الستوري المنتهي */
-        .story.expired { display: none; }
+        .story.expired { display: none; } /* يختفي تماماً بعد 24 ساعة */
+        
         .story-ring { width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; }
-        .story-img { width: 62px; height: 62px; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; }
-        .story-name { font-size: 11px; margin-top: 5px; }
+        .story-img { width: 62px; height: 62px; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; background-image: url('kurd.jpg'); }
+        .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
+
+        /* Fullscreen Story Viewer */
         #story-view { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; display: none; flex-direction: column; justify-content: center; }
         .progress-container { position: absolute; top: 10px; left: 0; width: 100%; display: flex; padding: 0 5px; box-sizing: border-box; gap: 5px; }
         .progress-bar { height: 2px; background: rgba(255,255,255,0.3); flex-grow: 1; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #fff; width: 0%; }
+        .progress-fill { height: 100%; background: #fff; width: 0%; transition: width 0.1s linear; }
         #story-media { width: 100%; max-height: 80vh; object-fit: contain; }
         .story-close { position: absolute; top: 30px; right: 20px; font-size: 35px; color: white; cursor: pointer; z-index: 2001; }
-        .post { border-bottom: 1px solid #262626; padding: 15px; text-align: center; }
+
+        /* Post Section */
+        .post { border-bottom: 1px solid #262626; margin-bottom: 10px; width: 100%; }
+        .post-header { padding: 12px; display: flex; align-items: center; gap: 10px; }
+        .user-icon { width: 34px; height: 34px; border-radius: 50%; background-image: url('Dldar.jpg'); background-size: cover; border: 1px solid #FFD700; }
+        .post-img { width: 100%; display: block; }
+        .post-actions { padding: 12px 15px; display: flex; gap: 20px; font-size: 24px; }
+        .post-info { padding: 0 15px 15px; text-align: right; }
+        
+        /* Comments */
+        .comment-item { font-size: 13px; margin-top: 5px; }
+        .comment-item b { color: #FFD700; margin-left: 5px; }
+        .comment-input-container { display: flex; padding: 10px 15px; border-top: 1px solid #262626; }
+        .comment-input { background: none; border: none; color: #fff; flex-grow: 1; outline: none; }
+        .comment-submit { color: #0095f6; font-weight: bold; cursor: pointer; opacity: 0.5; }
+        .comment-submit.active { opacity: 1; }
     </style>
 </head>
 <body>
 
     <div class="header">
+        <div class="add-btn" onclick="startStoryTimer()">+</div>
         <div class="logo">Dildar</div>
-        <div onclick="createNewStory()" style="cursor:pointer; font-size: 24px;">➕</div>
     </div>
 
-    <div class="stories" id="stories-container">
-        <div class="story" id="kurd-story" onclick="showStory('kurd.jpg', 'image')">
-            <div class="story-ring"><div class="story-img" style="background-image: url('kurd.jpg');"></div></div>
+    <div class="stories">
+        <div class="story" id="main-story" onclick="showStory('kurd.jpg', 'image')">
+            <div class="story-ring">
+                <div class="story-img"></div>
+            </div>
             <span class="story-name">Kurd</span>
         </div>
     </div>
@@ -45,52 +70,70 @@
     </div>
 
     <div class="post">
-        <h3>لێرە پۆستەکان دەردەکەون</h3>
+        <div class="post-header"><div class="user-icon"></div><span>dildar_official</span></div>
+        <img src="kurdistan.jpg" class="post-img">
+        <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
+        <div class="post-info">
+            <b>dildar_official</b> لێرە پۆستەکان دەردەکەون..
+            <div id="comments-list"></div>
+        </div>
+        <div class="comment-input-container">
+            <input type="text" class="comment-input" id="ci" placeholder="کۆمێنت بنووسە...">
+            <span class="comment-submit" id="cs">بڵاوکردنەوە</span>
+        </div>
     </div>
 
     <script>
-        // وظيفة لإضافة ستوري جديد وحفظ وقته
-        function createNewStory() {
+        // --- 1. ميزة الـ 24 ساعة ---
+        function startStoryTimer() {
             const now = new Date().getTime();
-            localStorage.setItem('story_time', now);
-            alert("تم رفع الستوري بنجاح! سيختفي بعد 24 ساعة.");
-            location.reload(); // تحديث الصفحة لرؤية النتيجة
+            localStorage.setItem('story_start_time', now);
+            alert("تم تفعيل الستوري لمدة 24 ساعة!");
+            location.reload();
         }
 
-        // فحص الستوري عند تحميل الصفحة
         window.onload = function() {
-            const storyTime = localStorage.getItem('story_time');
-            const kurdStory = document.getElementById('kurd-story');
-            
-            if (storyTime) {
+            const startTime = localStorage.getItem('story_start_time');
+            if (startTime) {
                 const now = new Date().getTime();
-                const diff = now - storyTime;
-                const hours24 = 24 * 60 * 60 * 1000; // 24 ساعة بالملي ثانية
-
-                if (diff > hours24) {
-                    kurdStory.classList.add('expired'); // إخفاء الستوري إذا انتهى الوقت
-                    localStorage.removeItem('story_time'); // حذف الوقت من الذاكرة
+                if (now - startTime > 24 * 60 * 60 * 1000) {
+                    document.getElementById('main-story').style.display = 'none';
                 }
             }
-        };
+        }
 
-        // الكود المعتاد لعرض الستوري
+        // --- 2. تشغيل الستوري ---
         let timer;
         function showStory(src, type) {
             document.getElementById('story-view').style.display = 'flex';
             const mc = document.getElementById('media-container');
-            mc.innerHTML = type === 'video' ? `<video id="story-media" src="${src}" autoplay></video>` : `<img id="story-media" src="${src}">`;
-            let w = 0; clearInterval(timer);
+            mc.innerHTML = `<img id="story-media" src="${src}">`;
+            
+            let w = 0;
+            const fill = document.getElementById('fill');
+            clearInterval(timer);
             timer = setInterval(() => {
                 if(w >= 100) closeStory();
-                else { w++; document.getElementById('fill').style.width = w + '%'; }
+                else { w++; fill.style.width = w + '%'; }
             }, 50);
         }
 
-        function closeStory() { 
-            document.getElementById('story-view').style.display = 'none'; 
-            clearInterval(timer); document.getElementById('fill').style.width = '0%';
+        function closeStory() {
+            document.getElementById('story-view').style.display = 'none';
+            clearInterval(timer);
+            document.getElementById('fill').style.width = '0%';
         }
+
+        // --- 3. حماية التعليقات ---
+        const ci = document.getElementById('ci'), cs = document.getElementById('cs'), cl = document.getElementById('comments-list');
+        ci.oninput = () => cs.classList.toggle('active', ci.value.trim() !== "");
+        cs.onclick = () => {
+            let txt = ci.value.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            if(txt) {
+                cl.innerHTML += `<div class="comment-item"><b>Guest</b> ${txt}</div>`;
+                ci.value = ""; cs.classList.remove('active');
+            }
+        };
     </script>
 </body>
 </html>
