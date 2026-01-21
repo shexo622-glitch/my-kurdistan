@@ -5,131 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DILDAR - KURDISTAN</title>
     <style>
+        * { box-sizing: border-box; }
         body {
-            margin: 0;
-            padding: 0;
-            /* خلفية فخمة بألوان كردستان مع صورة الجبل التي رفعتها أنت */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006870.jpg');
+            margin: 0; padding: 0;
+            /* رابط مباشر ومضمون للخلفية */
+            background: #2c3e50 url('https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006870.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color: white; font-family: sans-serif;
+            display: flex; flex-direction: column; align-items: center;
             min-height: 100vh;
         }
 
-        /* كود الاسم مع الجبل والشمس فوق حرف R */
-        .header-section {
-            position: relative;
-            margin-top: 50px;
-            text-align: center;
+        .header-section { margin-top: 40px; text-align: center; }
+        .main-name { 
+            font-size: 70px; color: #FFD700; font-weight: bold; 
+            text-shadow: 0 0 20px gold; position: relative; 
+        }
+        .sun-top { position: absolute; top: -25px; right: -5px; font-size: 25px; animation: rotate 5s linear infinite; }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        .main-card {
+            background: rgba(0, 0, 0, 0.85);
+            border: 3px solid #FFD700; border-radius: 25px;
+            padding: 25px; margin-top: 20px; width: 90%; max-width: 400px;
+            text-align: center; box-shadow: 0 0 30px rgba(0,0,0,1);
         }
 
-        .mtn-icon {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 130px;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .main-name {
-            position: relative;
-            font-size: 70px;
-            color: #FFD700;
-            font-weight: bold;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-            z-index: 2;
-            letter-spacing: 5px;
-        }
-
-        .sun-top {
-            position: absolute;
-            top: -30px;
-            right: 5px;
-            font-size: 25px;
-            animation: spin 5s linear infinite;
-        }
-
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        /* حاوية المحتوى */
-        .content-card {
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #FFD700;
-            border-radius: 20px;
-            padding: 30px;
-            margin-top: 30px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .flag-box img {
-            width: 100%;
-            border-radius: 10px;
-            border: 2px solid #fff;
-            margin-bottom: 20px;
-        }
+        /* رابط مباشر ومضمون للعلم */
+        .flag-img { width: 150px; border-radius: 10px; border: 2px solid white; margin-bottom: 20px; }
 
         .btn-enter {
-            display: inline-block;
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            border: 2px solid #FFD700;
-            transition: 0.3s;
-        }
-
-        .btn-enter:hover { transform: scale(1.1); box-shadow: 0 0 20px #2ecc71; }
-
-        .footer-text {
-            margin-top: auto;
-            padding: 20px;
-            color: #FFD700;
-            font-size: 14px;
-            text-align: center;
+            display: block; background: #2ecc71; color: white; padding: 15px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            font-size: 22px; border: 2px solid #FFD700; margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
     <div class="header-section">
-        <div class="mtn-icon">🏔️</div>
         <h1 class="main-name">DILDA<span style="position:relative">R<span class="sun-top">☀️</span></span></h1>
-        <p style="font-size: 20px; color: #fff;">☀️ KURDISTAN 🏔️</p>
+        <p>☀️ KURDISTAN 🏔️</p>
     </div>
 
-    <div class="content-card">
-        <div class="flag-box">
-            <img src="https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006872.jpg" alt="Ala">
-        </div>
+    <div class="main-card">
+        <img src="https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006872.jpg" class="flag-img" alt="Ala">
         
         <a href="feed.html" class="btn-enter">چوونه‌ژووره‌و ➔</a>
         
-        <div style="margin-top: 20px;">
-            <p>سروودی نەتەوەیی</p>
-            <audio controls style="width: 100%; height: 30px;">
-                <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
-            </audio>
-        </div>
+        <p>سروودی نەتەوەیی</p>
+        <audio controls style="width: 100%;">
+            <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
-    <div class="footer-text">
-        هەموو مافەکان پارێزراوە لسەر دەست دڵدار فاضل شيخموس<br>
-        2025/1/12
-    </div>
+    <div style="margin-top:auto; padding: 20px; color: gold;">2026/1/21</div>
 
 </body>
 </html>
