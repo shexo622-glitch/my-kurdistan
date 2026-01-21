@@ -138,3 +138,35 @@
     }, 2000); 
 </script>
 
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        /* تغيير الخلفية إلى اللون الأسود السادة */
+        background-color: #000000; 
+        /* إذا أردت صورة خفيفة جداً فوق الأسود يمكنك تفعيل السطر التالي */
+        /* background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('Wayper.jpg'); */
+        
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-align: center;
+        min-height: 100vh;
+    }
+
+    /* إضافة لمسة احترافية للاسم على الخلفية السوداء */
+    .main-name {
+        font-size: 70px;
+        font-weight: bold;
+        color: #FFD700;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+        margin-top: 50px;
+        letter-spacing: 5px;
+    }
+</style>
+
