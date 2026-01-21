@@ -2,150 +2,78 @@
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DILDAR - KURDISTAN</title>
     <style>
         * { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
-            /* خلفية بديلة في حال تعطلت الصورة ليبقى التصميم جميلاً */
-            background-color: #000;
-            background-image: url('https://i.ibb.co/v4m8S8v/1000006870.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
+            /* رابط صورة الأشخاص والخريطة */
+            background: #000 url('https://lh3.googleusercontent.com/d/10T-nL-8L_8p-x7r_d5P0W8f4X9-V-C-y') no-repeat center center fixed;
             background-size: cover;
             color: white;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
-
         #welcomeOverlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            transition: opacity 1s ease-out, visibility 1s;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10000; transition: opacity 1s, visibility 1s;
         }
-
         .welcome-content {
-            padding: 30px;
-            border: 3px solid #FFD700;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 0 30px #FFD700;
-            background: black;
-            animation: pulseGlow 2s infinite alternate;
+            padding: 30px; border: 3px solid #FFD700; border-radius: 20px;
+            text-align: center; box-shadow: 0 0 30px #FFD700; background: black;
         }
-
-        @keyframes pulseGlow {
-            from { box-shadow: 0 0 10px #FFD700; }
-            to { box-shadow: 0 0 40px #FFD700; }
-        }
-
         .overlay {
-            background: rgba(0, 0, 0, 0.7);
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); width: 100%; min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; padding: 20px;
         }
-        
-        .name { 
-            font-size: 50px; 
-            color: #FFD700; 
-            font-weight: bold; 
-            text-shadow: 0 0 15px gold; 
-            margin-top: 10px;
-        }
-
+        .name { font-size: 50px; color: #FFD700; font-weight: bold; text-shadow: 0 0 15px gold; }
         .flag-img {
-            width: 90%;
-            max-width: 340px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 0 25px gold;
-            border: 3px solid #FFD700;
-            display: block;
+            width: 90%; max-width: 340px; margin: 20px 0; border-radius: 10px;
+            box-shadow: 0 0 25px gold; border: 3px solid #FFD700;
         }
-
         .enter-btn {
-            background: linear-gradient(45deg, #d32f2f, #b71c1c);
-            color: white;
-            padding: 12px 40px;
-            font-size: 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid gold;
-            margin-bottom: 25px;
+            background: linear-gradient(45deg, #d32f2f, #b71c1c); color: white;
+            padding: 12px 40px; font-size: 22px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; border: 2px solid gold; margin-bottom: 25px;
         }
-
         .anthem-box {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 20px;
-            border-radius: 15px;
-            border-top: 4px solid #FFD700;
-            width: 100%;
-            max-width: 420px;
+            background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 15px;
+            border-top: 4px solid #FFD700; width: 100%; max-width: 420px;
         }
-
-        .footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 14px;
-            color: #FFD700;
-            font-weight: bold;
-            text-align: center;
-        }
+        .footer { margin-top: auto; padding: 20px; font-size: 14px; color: #FFD700; font-weight: bold; }
     </style>
 </head>
 <body>
-
     <div id="welcomeOverlay">
         <div class="welcome-content">
             <h2>بخێر هاتی بو مالبەری فەرمی دلدار</h2>
         </div>
     </div>
-
     <div class="overlay">
         <div class="name">DILDAR</div>
         <div style="font-size: 18px;">🏔️ KURDISTAN ☀️</div>
-        
-        <img src="https://i.ibb.co/PzYfRzG/1000006872.jpg" class="flag-img" alt="Ala">
-
+        <img src="https://lh3.googleusercontent.com/d/1X-u-L-8L_8p-x7r_d5P0W8f4X9-V-C-y" class="flag-img">
         <a href="feed.html" class="enter-btn">چوونه‌ژووره‌و ➔</a>
-
         <div class="anthem-box">
             <h3 style="color: #FFD700; margin-top: 0;">سروودی نەتەوەیی</h3>
             <audio controls style="width: 100%;">
                 <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
             </audio>
         </div>
-
         <div class="footer">
-            هەموو مافەکان پارێزراوە لسەر دەست دڵدار فاضل شيخموس<br>
-            2025/1/12
+            هەموو مافەکان پارێزراوە لسەر دەست دڵدار فاضل شيخموس<br>2025/1/12
         </div>
     </div>
-
     <script>
         window.addEventListener('load', function() {
             setTimeout(function() {
                 var welcome = document.getElementById('welcomeOverlay');
                 welcome.style.opacity = '0';
-                setTimeout(function() {
-                    welcome.style.visibility = 'hidden';
-                }, 1000);
+                setTimeout(function() { welcome.style.visibility = 'hidden'; }, 1000);
             }, 3000);
         });
     </script>
