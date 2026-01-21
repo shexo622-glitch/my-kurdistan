@@ -3,49 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Style - Dildar</title>
+    <title>Dildar - Feed</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
         
         /* Header */
-        .header { height: 50px; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #262626; position: sticky; top: 0; background: #000; z-index: 100; justify-content: space-between; }
-        .logo { font-size: 20px; font-weight: bold; }
+        .header { 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 15px; 
+            border-bottom: 1px solid #262626; 
+            position: sticky; 
+            top: 0; 
+            background: #000; 
+            z-index: 100; 
+            justify-content: space-between; 
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
 
         /* Stories Section */
-        .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 15px; }
-        .story { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
-        .story-ring { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; justify-content: center; align-items: center; }
-        .story-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; background: #333; }
-        .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
+        .stories { 
+            display: flex; 
+            padding: 15px 10px; 
+            overflow-x: auto; 
+            border-bottom: 1px solid #262626; 
+            gap: 15px; 
+            scrollbar-width: none; 
+        }
+        .stories::-webkit-scrollbar { display: none; }
+        .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; }
+        .story-ring { 
+            width: 68px; 
+            height: 68px; 
+            border-radius: 50%; 
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .story-img { 
+            width: 62px; 
+            height: 62px; 
+            border-radius: 50%; 
+            border: 2px solid #000; 
+            background-size: cover; 
+            background-position: center; 
+        }
+        .story-name { font-size: 11px; margin-top: 5px; color: #fff; font-weight: 400; }
 
         /* Post Section */
-        .post { border-bottom: 1px solid #262626; margin-bottom: 10px; }
-        .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
-        .user-icon { width: 32px; height: 32px; border-radius: 50%; background: #ffd700; }
+        .post { border-bottom: 1px solid #262626; margin-bottom: 10px; width: 100%; }
+        .post-header { padding: 12px; display: flex; align-items: center; gap: 10px; }
+        .user-icon { 
+            width: 34px; 
+            height: 34px; 
+            border-radius: 50%; 
+            border: 1px solid #FFD700; 
+            background-image: url('Dldar.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
         .username { font-weight: bold; font-size: 14px; }
-        .post-img { width: 100%; display: block; }
-        .post-actions { padding: 10px; display: flex; gap: 15px; font-size: 20px; }
-        .post-info { padding: 0 10px 10px; }
-        .likes { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; }
-        .caption { font-size: 14px; line-height: 1.4; }
-        .caption b { margin-left: 5px; }
+        .post-img-container { position: relative; width: 100%; }
+        .post-img { width: 100%; display: block; cursor: pointer; }
+        
+        .post-actions { padding: 12px 15px; display: flex; gap: 20px; font-size: 24px; }
+        .action-btn { cursor: pointer; transition: transform 0.2s ease; user-select: none; }
+        
+        .post-info { padding: 0 15px 15px; text-align: right; }
+        .likes { font-weight: bold; font-size: 14px; display: block; margin-bottom: 6px; }
+        .caption { font-size: 14px; line-height: 1.5; }
+        .caption b { margin-left: 5px; color: #FFD700; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="logo">Instagram</div>
-        <div style="font-size: 24px;">❤️ ✉️</div>
+        <div class="logo">Dildar</div>
+        <div style="font-size: 22px; display: flex; gap: 15px;">
+            <span>➕</span>
+            <span>❤️</span>
+            <span>✉️</span>
+        </div>
     </div>
 
     <div class="stories">
         <div class="story">
-            <div class="story-ring"><div class="story-img"></div></div>
+            <div class="story-ring"><div class="story-img" style="background-image: url('Dldar.jpg');"></div></div>
             <span class="story-name">تۆ</span>
         </div>
         <div class="story">
-            <div class="story-ring"><div class="story-img"></div></div>
-            <span class="story-name">kurd_design</span>
+            <div class="story-ring"><div class="story-img" style="background-image: url('qasad.jpg');"></div></div>
+            <span class="story-name">Qasad</span>
+        </div>
+        <div class="story">
+            <div class="story-ring"><div class="story-img" style="background-image: url('kurd.jpg');"></div></div>
+            <span class="story-name">Kurd</span>
         </div>
     </div>
 
@@ -55,19 +115,61 @@
             <span class="username">dildar_official</span>
         </div>
         
-        <img src="kurdistan.jpg" class="post-img" alt="Post">
+        <div class="post-img-container">
+            <img src="kurdistan.jpg" class="post-img" id="main-post">
+        </div>
 
         <div class="post-actions">
-            <span>❤️</span> <span>💬</span> <span>✈️</span>
+            <span id="like-btn" class="action-btn">🤍</span>
+            <span class="action-btn">💬</span>
+            <span class="action-btn">✈️</span>
         </div>
 
         <div class="post-info">
-            <span class="likes">٩٥٢ لایک</span>
+            <span class="likes"><span id="like-count">952</span> لایک</span>
             <div class="caption">
-                <b>dildar_official</b> ئەمە یەکەم پۆستی منە لە ماڵپەڕە نوێیەکەم! ☀️🏔️
+                <b>dildar_official</b> سڵاو هاوڕێیان! بەخێربێن بۆ ماڵپەڕی فەرمی من ☀️🏔️👑
             </div>
         </div>
     </div>
+
+    <script>
+        const likeBtn = document.getElementById('like-btn');
+        const likeCount = document.getElementById('like-count');
+        const mainPost = document.getElementById('main-post');
+        
+        let isLiked = false;
+        let count = 952;
+
+        // وظيفة الضغط على زر القلب
+        function toggleLike() {
+            if (!isLiked) {
+                likeBtn.innerText = '❤️';
+                likeBtn.style.transform = 'scale(1.3)';
+                count++;
+                isLiked = true;
+            } else {
+                likeBtn.innerText = '🤍';
+                likeBtn.style.transform = 'scale(1.0)';
+                count--;
+                isLiked = false;
+            }
+            likeCount.innerText = count;
+            
+            setTimeout(() => {
+                likeBtn.style.transform = isLiked ? 'scale(1.1)' : 'scale(1.0)';
+            }, 200);
+        }
+
+        likeBtn.addEventListener('click', toggleLike);
+
+        // وظيفة الضغط المزدوج على الصورة
+        mainPost.addEventListener('dblclick', function() {
+            if (!isLiked) {
+                toggleLike();
+            }
+        });
+    </script>
 
 </body>
 </html>
