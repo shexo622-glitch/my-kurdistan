@@ -1,66 +1,58 @@
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DILDAR - KURDISTAN</title>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 0;
-            background: #000 url('https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006870.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white; font-family: sans-serif;
-            min-height: 100vh; display: flex; flex-direction: column;
-        }
-        #welcomeOverlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95); display: flex; justify-content: center;
-            align-items: center; z-index: 10000; transition: opacity 1s, visibility 1s;
-        }
-        .welcome-content {
-            padding: 30px; border: 3px solid #FFD700; border-radius: 20px;
-            text-align: center; box-shadow: 0 0 40px #FFD700; background: black;
-        }
-        .overlay { background: rgba(0, 0, 0, 0.7); width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        .name { font-size: 50px; color: #FFD700; font-weight: bold; text-shadow: 0 0 15px gold; margin-top: 20px; }
-        .flag-img {
-            width: 100%; max-width: 350px; margin: 20px 0; border-radius: 12px;
-            box-shadow: 0 0 30px gold; border: 3px solid #FFD700;
-        }
-        .enter-btn {
-            background: linear-gradient(45deg, #d32f2f, #b71c1c); color: white;
-            padding: 15px 45px; font-size: 24px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; border: 2px solid #FFD700; margin: 20px 0;
-        }
-        .anthem-box { background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 15px; border-top: 5px solid #FFD700; width: 100%; max-width: 450px; margin-bottom: 40px; }
-        .footer { margin-top: auto; padding: 20px; font-size: 15px; color: #FFD700; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div id="welcomeOverlay">
-        <div class="welcome-content"><h2>بخێر هاتی بو مالبەری فەرمی دلدار</h2></div>
-    </div>
-    <div class="overlay">
-        <div class="name">DILDAR</div>
-        <div style="font-size: 20px; margin-top: 10px;">☀️ KURDISTAN 🏔️</div>
-        <img src="https://raw.githubusercontent.com/shexo622-glitch/my-kurdistan/main/1000006872.jpg" class="flag-img">
-        <a href="feed.html" class="enter-btn">چوونه‌ژووره‌و ➔</a>
-        <div class="anthem-box">
-            <h2 style="color: #FFD700; margin-top: 0;">سروودی نەتەوەیی</h2>
-            <audio controls style="width: 100%;"><source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg"></audio>
-        </div>
-        <div class="footer">هەموو مافەکان پارێزراوە لسەر دەست دڵدار فاضل شيخموس<br>2025/1/12</div>
-    </div>
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var welcome = document.getElementById('welcomeOverlay');
-                welcome.style.opacity = '0';
-                setTimeout(function() { welcome.style.visibility = 'hidden'; }, 1000);
-            }, 3000);
-        });
-    </script>
-</body>
-</html>
+<div class="name-container">
+    <div class="mountain-bg">🏔️</div>
+    
+    <h1 class="dildar-name">
+        DILDA<span class="sun-wrapper">R<span class="sun-emoji">☀️</span></span>
+    </h1>
+</div>
+
+<style>
+    .name-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .mountain-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 120px; /* حجم الجبل خلف الاسم */
+        opacity: 0.3; /* شفافية الجبل لكي يظهر الاسم بوضوح */
+        z-index: 1;
+    }
+
+    .dildar-name {
+        position: relative;
+        font-size: 60px;
+        color: #FFD700;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+        z-index: 2;
+        margin: 0;
+        letter-spacing: 5px;
+    }
+
+    .sun-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .sun-emoji {
+        position: absolute;
+        top: -30px; /* رفع الشمس فوق حرف R */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 25px;
+        animation: rotateSun 5s linear infinite;
+    }
+
+    @keyframes rotateSun {
+        from { transform: translateX(-50%) rotate(0deg); }
+        to { transform: translateX(-50%) rotate(360deg); }
+    }
+</style>
 
