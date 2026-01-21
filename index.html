@@ -1,71 +1,91 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="ku">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kurdistan Proud</title>
+    <title>DILDAR - KURDISTAN</title>
     <style>
-        body { 
-            background: linear-gradient(to bottom, #002b36, #004d40); 
-            color: white; 
-            text-align: center; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
+        body {
+            background-color: #0b0f19;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
             padding: 20px;
+            overflow-x: hidden;
         }
-        .flag-img {
-            width: 150px;
-            border: 3px solid #f1c40f;
-            border-radius: 10px;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        .header { text-align: center; margin-top: 20px; }
+        .name { font-size: 50px; color: #FFD700; font-weight: bold; letter-spacing: 5px; text-shadow: 0 0 15px #FFD700; }
+        .sub-title { font-size: 24px; margin-top: 10px; color: #f1f1f1; }
+        
+        .map-container {
+            margin: 40px 0;
+            position: relative;
         }
-        .main-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 25px;
-            border: 2px solid #27ae60;
-            max-width: 500px;
-            margin: 0 auto;
+        .map-container img {
+            width: 320px;
+            filter: drop-shadow(0 0 30px #FFD700);
+            animation: glow 3s infinite alternate;
         }
-        h1 { color: #f1c40f; text-shadow: 2px 2px 4px #000; }
-        .audio-player {
-            margin: 20px 0;
-            background: #eee;
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px #FFD700); }
+            to { filter: drop-shadow(0 0 40px #FFD700); }
+        }
+
+        .enter-btn {
+            background: linear-gradient(45deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 15px 40px;
+            font-size: 22px;
             border-radius: 50px;
-            width: 100%;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #ffffff33;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            margin-bottom: 30px;
         }
-        .anthem-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #fff;
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
+        .enter-btn:hover { transform: scale(1.1); background: #2e7d32; }
+
+        .anthem-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
             border-radius: 15px;
+            border: 1px solid #FFD700;
+            max-width: 400px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 16px;
         }
+        .anthem-title { color: #FFD700; font-weight: bold; margin-bottom: 10px; display: block; }
+        
+        audio { margin-top: 15px; height: 30px; width: 250px; opacity: 0.7; }
     </style>
 </head>
 <body>
 
-    <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg" class="flag-img" alt="Kurdistan Flag">
+    <div class="header">
+        <div class="name">DILDAR</div>
+        <div class="sub-title">☀️ KURDISTAN 🏔️</div>
     </div>
 
-    <div class="main-card">
-        <h1>☀️ دڵدار کوردستان ☀️</h1>
-        
-        <p>🎵 سروودی نیشتمانی ئەی ڕەقیب 🎵</p>
-        <audio controls class="audio-player">
-            <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+    <div class="map-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Kurdistan_Map_with_Flag.png" alt="Kurdistan Map">
+    </div>
 
-        <div class="anthem-text">
-            <p>ئەی ڕەقیب هەر ماوە قەومی کورد زمان</p>
-            <p>نایشکێنێ دانەیی تۆپی زەمان</p>
-            <p>کەس نەڵێ کورد مردووە، کورد زیندووە</p>
-            <p>زیندووە قەت نانەوێ ئاڵاکەمان</p>
-        </div>
+    <a href="feed.html" class="enter-btn">چوونه‌ژووره‌و ➔</a>
+
+    <div class="anthem-box">
+        <span class="anthem-title">Ey Reqîb (النشيد الوطني)</span>
+        Ey Reqîb her maye qewmê kurd ziman<br>
+        Naşikê û danayê bi topê zeman<br>
+        Kes nebê kurd dimrin, kurd jîn dibin<br>
+        Jîn dibin qet nakevê ala kurdan<br>
+        <audio controls autoplay loop>
+            <source src="https://www.nationalanthems.info/ku.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
 </body>
