@@ -15,7 +15,7 @@
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
         .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
         
-        /* الترتيب العكسي: المنشور الأخير في الكود يظهر أولاً فوق */
+        /* الترتيب العكسي ليظهر الفيديو في الأعلى */
         #feed-container { display: flex; flex-direction: column-reverse; }
         
         .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
@@ -36,8 +36,8 @@
     </div>
 
     <div class="stories" id="stories-container">
-        <div class="story" data-time="2026-01-22T16:00:00" onclick="window.open('Qasad.jpg', '_blank')">
-            <div class="story-ring"><img src="Qasad.jpg" class="story-img"></div>
+        <div class="story" data-time="2026-01-22T16:00:00" onclick="window.open('qasad.jpg', '_blank')">
+            <div class="story-ring"><img src="qasad.jpg" class="story-img"></div>
             <span class="story-name">Qasad</span>
         </div>
         <div class="story" data-time="2026-01-22T16:00:00" onclick="window.open('kurd.jpg', '_blank')">
@@ -56,7 +56,7 @@
 
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
-            <img src="Kurdistan.jpg" class="post-main-content">
+            <img src="kurdistan.jpg" class="post-main-content">
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
             <div class="post-content"><b>dildar_official</b> Welatê min ☀️</div>
         </div>
@@ -65,7 +65,7 @@
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
             <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> Almas Project 💎 (New Video)</div>
+            <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
         </div>
     </div>
 
