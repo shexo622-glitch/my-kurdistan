@@ -6,27 +6,44 @@
     <title>Instagram - Dildar</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; padding-bottom: 60px; }
+        body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; padding-bottom: 70px; }
+        
+        /* --- شاشة الترحيب --- */
+        #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: 0.8s; }
+        .splash-logo { width: 100px; height: 100px; border-radius: 50%; border: 2px solid #FFD700; }
+        .fade-out { opacity: 0; pointer-events: none; }
 
         .top-nav { position: sticky; top: 0; background: #000; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; border-bottom: 1px solid #262626; z-index: 100; }
-        .logo { font-size: 24px; font-weight: bold; color: #FFD700; }
-
-        .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 12px; scrollbar-width: none; }
+        .logo { font-size: 22px; font-weight: bold; color: #FFD700; }
+        
+        .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 12px; }
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
-        .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; }
-        .story span { font-size: 11px; margin-top: 5px; color: #fff; text-align: center; display: block; }
+        .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
 
-        .post { border-bottom: 1px solid #262626; width: 100%; margin-bottom: 5px; }
+        /* --- الحيلة البرمجية هنا (قلب الترتيب) --- */
+        #feed-container {
+            display: flex;
+            flex-direction: column-reverse; /* هذا السطر يجعل الأخير يظهر أولاً */
+        }
+
+        .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
         .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
-        .post-user-img { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #FFD700; object-fit: cover; }
-        .post-main-content { width: 100%; display: block; border-top: 0.5px solid #262626; }
-        .post-actions { padding: 10px 15px; display: flex; gap: 18px; font-size: 24px; }
+        .post-user-img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #FFD700; }
+        .post-main-content { width: 100%; display: block; }
+        .post-actions { padding: 12px 15px; display: flex; gap: 18px; font-size: 22px; }
         .post-content { padding: 0 15px 15px; font-size: 14px; }
 
         .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 50px; background: #000; border-top: 1px solid #262626; display: flex; justify-content: space-around; align-items: center; z-index: 100; }
     </style>
 </head>
 <body>
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="Dldar.jpg" class="splash-logo">
+            <div style="color:#FFD700; margin-top:10px; font-weight:bold; text-align:center;">DILDAR</div>
+        </div>
+    </div>
 
     <div class="top-nav">
         <span>📷</span>
@@ -36,55 +53,39 @@
 
     <div class="stories">
         <div class="story">
-            <div class="story-ring"><div class="story-img" style="background-image: url('Dldar.jpg');"></div></div>
-            <span>Your story</span>
-        </div>
-        <div class="story">
-            <div class="story-ring"><div class="story-img" style="background-image: url('kurd.jpg');"></div></div>
-            <span>Kurd</span>
+            <div class="story-ring"><img src="Dldar.jpg" class="story-img"></div>
+            <span style="font-size:11px; text-align:center; display:block;">Your story</span>
         </div>
     </div>
 
-    <div class="feed">
+    <div id="feed-container">
 
         <div class="post">
-            <div class="post-header">
-                <img src="Dldar.jpg" class="post-user-img">
-                <span style="font-weight: bold;">dildar_official</span>
-            </div>
-            <video controls playsinline class="post-main-content">
-                <source src="almas.mp4" type="video/mp4">
-            </video>
+            <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
+            <img src="Dildarsayt.jpg" class="post-main-content">
+            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <div class="post-content"><b>dildar_official</b> My Kurdistanê ☀️</div>
+        </div>
+
+        <div class="post">
+            <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
+            <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
             <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
         </div>
 
-        <div class="post">
-            <div class="post-header">
-                <img src="Dldar.jpg" class="post-user-img">
-                <span style="font-weight: bold;">dildar_official</span>
-            </div>
-            <img src="Dildarsayt.jpg" class="post-main-content">
-            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> My Kurdistan ☀️</div>
         </div>
-
-        <div class="post">
-            <div class="post-header">
-                <img src="Dldar.jpg" class="post-user-img">
-                <span style="font-weight: bold;">dildar_official</span>
-            </div>
-            <img src="kurdistan.jpg" class="post-main-content">
-            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> بژی کوردستان</div>
-        </div>
-
-    </div>
 
     <div class="bottom-nav">
         <span>🏠</span><span>🔍</span><span>➕</span><span>🎬</span>
         <img src="Dldar.jpg" style="width: 26px; height: 26px; border-radius: 50%;">
     </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() { document.getElementById('splash-screen').classList.add('fade-out'); }, 2000);
+        });
+    </script>
 
 </body>
 </html>
