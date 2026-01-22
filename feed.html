@@ -7,24 +7,31 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; padding-bottom: 70px; }
+        
+        /* الهيدر العلوي */
         .top-nav { position: sticky; top: 0; background: #000; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; border-bottom: 1px solid #262626; z-index: 100; }
         .logo { font-size: 22px; font-weight: bold; color: #FFD700; }
+        
+        /* قسم الستوريات */
         .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 12px; }
         .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; cursor: pointer; }
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
         .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
-        
-        /* الترتيب العكسي ليظهر الفيديو في الأعلى */
+
+        /* حاوية المنشورات (ترتيب عكسي) */
         #feed-container { display: flex; flex-direction: column-reverse; }
-        
         .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
         .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
         .post-user-img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #FFD700; }
-        .post-main-content { width: 100%; display: block; }
+        .post-main-content { width: 100%; display: block; max-width: 100%; }
         .post-actions { padding: 12px 15px; display: flex; gap: 18px; font-size: 22px; }
         .post-content { padding: 0 15px 15px; font-size: 14px; }
+
+        /* الشريط السفلي المحدث بروابط */
         .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 50px; background: #000; border-top: 1px solid #262626; display: flex; justify-content: space-around; align-items: center; z-index: 100; }
+        .bottom-nav a { text-decoration: none; color: #fff; font-size: 24px; display: flex; align-items: center; }
+        .nav-profile-img { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid #fff; }
     </style>
 </head>
 <body>
@@ -70,11 +77,17 @@
     </div>
 
     <div class="bottom-nav">
-        <span>🏠</span><span>🔍</span><span>➕</span><span>🎬</span>
-        <img src="Dldar.jpg" style="width: 26px; height: 26px; border-radius: 50%;">
+        <a href="feed.html">🏠</a>
+        <a href="explore.html">🔍</a>
+        <a href="#">➕</a>
+        <a href="reels.html">🎬</a>
+        <a href="profile.html">
+            <img src="Dldar.jpg" class="nav-profile-img">
+        </a>
     </div>
 
     <script>
+        // نظام الـ 24 ساعة للستوري
         function checkStories() {
             const stories = document.querySelectorAll('.story');
             const now = new Date();
