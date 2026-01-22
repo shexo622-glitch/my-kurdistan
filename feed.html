@@ -7,26 +7,23 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; padding-bottom: 70px; }
-        
         .top-nav { position: sticky; top: 0; background: #000; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; border-bottom: 1px solid #262626; z-index: 100; }
         .logo { font-size: 22px; font-weight: bold; color: #FFD700; }
         
+        /* تصميم الستوري */
         .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 12px; }
+        .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; }
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
+        .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
 
-        #feed-container {
-            display: flex;
-            flex-direction: column-reverse; 
-        }
-
+        #feed-container { display: flex; flex-direction: column-reverse; }
         .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
         .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
         .post-user-img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #FFD700; }
         .post-main-content { width: 100%; display: block; }
         .post-actions { padding: 12px 15px; display: flex; gap: 18px; font-size: 22px; }
         .post-content { padding: 0 15px 15px; font-size: 14px; }
-
         .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 50px; background: #000; border-top: 1px solid #262626; display: flex; justify-content: space-around; align-items: center; z-index: 100; }
     </style>
 </head>
@@ -38,14 +35,26 @@
         <span>📩</span>
     </div>
 
-    <div class="stories">
-        <div class="story">
-            <div class="story-ring"><img src="Dldar.jpg" class="story-img"></div>
-            <span style="font-size:11px; text-align:center; display:block;">Your story</span>
+    <div class="stories" id="stories-container">
+        <div class="story" data-time="2026-01-22T16:00:00">
+            <div class="story-ring"><img src="Qasad.jpg" class="story-img"></div>
+            <span class="story-name">Qasad</span>
+        </div>
+
+        <div class="story" data-time="2026-01-22T16:00:00">
+            <div class="story-ring"><img src="kurd.jpg" class="story-img"></div>
+            <span class="story-name">Kurd</span>
         </div>
     </div>
 
     <div id="feed-container">
+        <div class="post">
+            <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
+            <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
+            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
+        </div>
+
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
             <img src="Dildarsayt.jpg" class="post-main-content">
@@ -55,9 +64,9 @@
 
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
-            <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
+            <img src="Dldar.jpg" class="post-main-content">
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
+            <div class="post-content"><b>dildar_official</b> New Post ✨</div>
         </div>
     </div>
 
@@ -65,6 +74,22 @@
         <span>🏠</span><span>🔍</span><span>➕</span><span>🎬</span>
         <img src="Dldar.jpg" style="width: 26px; height: 26px; border-radius: 50%;">
     </div>
+
+    <script>
+        // كود حذف الستوري بعد 24 ساعة تلقائياً
+        function updateStories() {
+            const stories = document.querySelectorAll('.story');
+            const now = new Date();
+            stories.forEach(story => {
+                const postTime = new Date(story.getAttribute('data-time'));
+                const diff = (now - postTime) / (1000 * 60 * 60); // فرق الساعات
+                if (diff >= 24) {
+                    story.remove(); // حذف الستوري من الصفحة
+                }
+            });
+        }
+        updateStories();
+    </script>
 
 </body>
 </html>
