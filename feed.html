@@ -3,175 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dildar - Official</title>
+    <title>Dildar Official - Feed</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; margin: 0; padding: 0; }
         
-        /* Header */
-        .header { height: 50px; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #262626; position: sticky; top: 0; background: #000; z-index: 100; justify-content: space-between; }
+        /* الهيدر العلوي */
+        .header { height: 50px; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #262626; position: sticky; top: 0; background: #000; z-index: 1000; justify-content: space-between; }
         .logo { font-size: 24px; font-weight: bold; color: #FFD700; }
-        .add-btn { font-size: 30px; cursor: pointer; color: #555; transition: 0.3s; }
-        .add-btn:hover { color: #fff; }
 
-        /* Stories Section */
-        .stories { display: flex; padding: 15px 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 15px; scrollbar-width: none; }
-        .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; cursor: pointer; }
-        .story.expired { display: none; } /* يختفي تماماً بعد 24 ساعة */
-        
-        .story-ring { width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; }
-        .story-img { width: 62px; height: 62px; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; background-image: url('kurd.jpg'); }
-        .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
+        /* قسم البروفايل والبايو */
+        .profile-area { padding: 15px; border-bottom: 1px solid #262626; text-align: center; background: #050505; }
+        .p-img { width: 90px; height: 90px; border-radius: 50%; border: 2px solid #FFD700; padding: 2px; object-fit: cover; }
+        .p-name { font-weight: bold; color: #FFD700; margin-top: 10px; font-size: 18px; }
+        .p-bio { font-size: 14px; color: #ccc; line-height: 1.6; margin-top: 5px; }
 
-        /* Fullscreen Story Viewer */
-        #story-view { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; display: none; flex-direction: column; justify-content: center; }
-        .progress-container { position: absolute; top: 10px; left: 0; width: 100%; display: flex; padding: 0 5px; box-sizing: border-box; gap: 5px; }
-        .progress-bar { height: 2px; background: rgba(255,255,255,0.3); flex-grow: 1; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #fff; width: 0%; transition: width 0.1s linear; }
-        #story-media { width: 100%; max-height: 80vh; object-fit: contain; }
-        .story-close { position: absolute; top: 30px; right: 20px; font-size: 35px; color: white; cursor: pointer; z-index: 2001; }
+        /* قسم الستوري */
+        .stories-container { display: flex; padding: 10px; overflow-x: auto; gap: 15px; border-bottom: 1px solid #262626; scrollbar-width: none; }
+        .story { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
+        .s-ring { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; }
+        .s-img { width: 58px; height: 58px; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; }
 
-        /* Post Section */
-        .post { border-bottom: 1px solid #262626; margin-bottom: 10px; width: 100%; }
-        .post-header { padding: 12px; display: flex; align-items: center; gap: 10px; }
-        .user-icon { width: 34px; height: 34px; border-radius: 50%; background-image: url('Dldar.jpg'); background-size: cover; border: 1px solid #FFD700; }
+        /* حاوية المنشورات (الجديد يظهر فوق) */
+        .main-feed { display: flex; flex-direction: column; }
+
+        /* تصميم المنشور (Post) */
+        .post { border-bottom: 1px solid #262626; margin-bottom: 15px; }
+        .post-top { padding: 10px; display: flex; align-items: center; gap: 10px; }
+        .u-icon { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #FFD700; }
         .post-img { width: 100%; display: block; }
-        .post-actions { padding: 12px 15px; display: flex; gap: 20px; font-size: 24px; }
-        .post-info { padding: 0 15px 15px; text-align: right; }
-        
-        /* Comments */
-        .comment-item { font-size: 13px; margin-top: 5px; }
-        .comment-item b { color: #FFD700; margin-left: 5px; }
-        .comment-input-container { display: flex; padding: 10px 15px; border-top: 1px solid #262626; }
-        .comment-input { background: none; border: none; color: #fff; flex-grow: 1; outline: none; }
-        .comment-submit { color: #0095f6; font-weight: bold; cursor: pointer; opacity: 0.5; }
-        .comment-submit.active { opacity: 1; }
+        .post-btns { padding: 10px 15px; display: flex; gap: 15px; font-size: 24px; }
+        .post-info { padding: 0 15px 15px; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="add-btn" onclick="startStoryTimer()">+</div>
+        <div style="font-size: 24px;">➕</div>
         <div class="logo">Dildar</div>
+        <div style="font-size: 24px;">❤️</div>
     </div>
 
-    <div class="stories">
-        <div class="story" id="main-story" onclick="showStory('kurd.jpg', 'image')">
-            <div class="story-ring">
-                <div class="story-img"></div>
+    <div class="profile-area">
+        <img src="Dildarsayt.jpg" class="p-img">
+        <div class="p-name">Dildar Official</div>
+        <p class="p-bio">
+            ئەمە یەکەم پڕۆژەمە کە دروستم کردووە، لە داهاتوودا پەرەی پێ دەدەم و دەیکەم بە بەرنامەیەکی تەواو. 🚀
+        </p>
+    </div>
+
+    <div class="stories-container">
+        <div class="story">
+            <div class="s-ring"><div class="s-img" style="background-image: url('kurd.jpg');"></div></div>
+            <span style="font-size: 11px; margin-top: 4px;">Kurd</span>
+        </div>
+        </div>
+
+    <div class="main-feed">
+
+        <div class="post">
+            <div class="post-top">
+                <img src="Dildarsayt.jpg" class="u-icon">
+                <span style="font-weight: bold;">dildar_official</span>
             </div>
-            <span class="story-name">Kurd</span>
+            <img src="new_post.jpg" class="post-img"> <div class="post-btns"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <div class="post-info"><b>dildar_official</b> لێرە پۆستی نوێ دەردەکەوێت.. 🔥</div>
         </div>
+
+        <div class="post">
+            <div class="post-top">
+                <img src="Dildarsayt.jpg" class="u-icon">
+                <span style="font-weight: bold;">dildar_official</span>
+            </div>
+            <img src="kurdistan.jpg" class="post-img">
+            <div class="post-btns"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <div class="post-info"><b>dildar_official</b> بژی کوردستان.. ☀️</div>
+        </div>
+
     </div>
 
-    <div id="story-view">
-        <div class="progress-container"><div class="progress-bar"><div id="fill" class="progress-fill"></div></div></div>
-        <span class="story-close" onclick="closeStory()">&times;</span>
-        <div id="media-container" style="display:flex; justify-content:center;"></div>
-    </div>
-
-    <div class="post">
-        <div class="post-header"><div class="user-icon"></div><span>dildar_official</span></div>
-        <img src="kurdistan.jpg" class="post-img">
-        <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-        <div class="post-info">
-            <b>dildar_official</b> لێرە پۆستەکان دەردەکەون..
-            <div id="comments-list"></div>
-        </div>
-        <div class="comment-input-container">
-            <input type="text" class="comment-input" id="ci" placeholder="کۆمێنت بنووسە...">
-            <span class="comment-submit" id="cs">بڵاوکردنەوە</span>
-        </div>
-    </div>
-
-    <script>
-        // --- 1. ميزة الـ 24 ساعة ---
-        function startStoryTimer() {
-            const now = new Date().getTime();
-            localStorage.setItem('story_start_time', now);
-            alert("تم تفعيل الستوري لمدة 24 ساعة!");
-            location.reload();
-        }
-
-        window.onload = function() {
-            const startTime = localStorage.getItem('story_start_time');
-            if (startTime) {
-                const now = new Date().getTime();
-                if (now - startTime > 24 * 60 * 60 * 1000) {
-                    document.getElementById('main-story').style.display = 'none';
-                }
-            }
-        }
-
-        // --- 2. تشغيل الستوري ---
-        let timer;
-        function showStory(src, type) {
-            document.getElementById('story-view').style.display = 'flex';
-            const mc = document.getElementById('media-container');
-            mc.innerHTML = `<img id="story-media" src="${src}">`;
-            
-            let w = 0;
-            const fill = document.getElementById('fill');
-            clearInterval(timer);
-            timer = setInterval(() => {
-                if(w >= 100) closeStory();
-                else { w++; fill.style.width = w + '%'; }
-            }, 50);
-        }
-
-        function closeStory() {
-            document.getElementById('story-view').style.display = 'none';
-            clearInterval(timer);
-            document.getElementById('fill').style.width = '0%';
-        }
-
-        // --- 3. حماية التعليقات ---
-        const ci = document.getElementById('ci'), cs = document.getElementById('cs'), cl = document.getElementById('comments-list');
-        ci.oninput = () => cs.classList.toggle('active', ci.value.trim() !== "");
-        cs.onclick = () => {
-            let txt = ci.value.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            if(txt) {
-                cl.innerHTML += `<div class="comment-item"><b>Guest</b> ${txt}</div>`;
-                ci.value = ""; cs.classList.remove('active');
-            }
-        };
-    </script>
 </body>
 </html>
-
-<canvas id="canvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;"></canvas>
-
-<div style="text-align: center; padding: 30px 15px; background: #0a0a0a; border-bottom: 1px solid #262626;">
-    <img src="Dildarsayt.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover;">
-    <h2 style="color: #FFD700; font-family: sans-serif;">Dildar Official</h2>
-    <p style="color: #ccc; direction: rtl; font-size: 15px; line-height: 1.6;">
-        ئەمە یەکەم پڕۆژەمە کە دروستم کردووە، لە داهاتوودا پەرەی پێ دەدەم و دەیکەم بە بەرنامەیەکی تەواو. 🚀
-    </p>
-</div>
-
-<script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let mouse = { x: canvas.width/2, y: canvas.height/2 };
-    let dots = [];
-
-    window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
-    window.addEventListener('touchmove', e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; });
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        dots.push({x: mouse.x, y: mouse.y});
-        if(dots.length > 20) dots.shift();
-        dots.forEach((dot, i) => {
-            ctx.globalAlpha = i / dots.length;
-            ctx.fillStyle = '#FFD700';
-            ctx.beginPath();
-            ctx.arc(dot.x, dot.y, 5, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        requestAnimationFrame(animate);
-    }
-    animate();
-</script>
 
