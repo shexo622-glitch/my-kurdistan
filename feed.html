@@ -10,16 +10,13 @@
 
         /* شريط علوي (Header) */
         .top-nav { position: sticky; top: 0; background: #000; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; border-bottom: 1px solid #262626; z-index: 100; }
-        .top-nav .logo { font-size: 24px; font-weight: bold; color: #FFD700; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .top-nav i { font-size: 22px; cursor: pointer; }
+        .top-nav .logo { font-size: 24px; font-weight: bold; color: #FFD700; }
 
         /* قسم الستوري (Stories) */
         .stories { display: flex; padding: 10px; overflow-x: auto; border-bottom: 1px solid #262626; gap: 12px; scrollbar-width: none; }
-        .stories::-webkit-scrollbar { display: none; }
-        .story { display: flex; flex-direction: column; align-items: center; min-width: 75px; }
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; background-size: cover; background-position: center; }
-        .story span { font-size: 11px; margin-top: 5px; color: #fff; }
+        .story span { font-size: 11px; margin-top: 5px; color: #fff; text-align: center; display: block; }
 
         /* تصميم المنشور (Post) */
         .post { border-bottom: 1px solid #262626; width: 100%; margin-bottom: 5px; }
@@ -28,16 +25,13 @@
         .post-user-img { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #FFD700; object-fit: cover; }
         .post-user-name { font-size: 14px; font-weight: bold; }
         
-        .post-main-img { width: 100%; display: block; border-top: 0.5px solid #262626; }
+        .post-main-content { width: 100%; display: block; border-top: 0.5px solid #262626; }
         
         .post-actions { padding: 10px 15px; display: flex; gap: 18px; font-size: 24px; }
-        .post-actions span { cursor: pointer; }
         .post-content { padding: 0 15px 15px; font-size: 14px; line-height: 1.4; }
-        .post-content b { margin-left: 5px; }
 
-        /* شريط تنقل سفلي (Bottom Tab Bar) */
+        /* شريط تنقل سفلي */
         .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 50px; background: #000; border-top: 1px solid #262626; display: flex; justify-content: space-around; align-items: center; z-index: 100; }
-        .bottom-nav span { font-size: 24px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -60,65 +54,27 @@
     </div>
 
     <div class="feed">
-<div class="post">
-    <div class="post-header">
-        <div class="post-user">
-            <img src="Dldar.jpg" class="post-user-img"> <span class="post-user-name">dildar_official</span>
-        </div>
-        <span>⋮</span>
-    </div>
-    
-    <video controls class="post-main-img" poster="Dildarsayt.jpg">
-        <source src="Almas.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
 
-    <div class="post-actions">
-        <span>❤️</span>
-        <span>💬</span>
-        <span>✈️</span>
-    </div>
-    
-    <div class="post-content">
-        <b>dildar_official</b> پڕۆژەی نوێ - Almas 💎
-    </div>
-</div>
         <div class="post">
             <div class="post-header">
                 <div class="post-user">
-                    <img src="Dldar.jpg" class="post-user-img"> <span class="post-user-name">dildar_official</span>
+                    <img src="Dldar.jpg" class="post-user-img">
+                    <span class="post-user-name">dildar_official</span>
                 </div>
                 <span>⋮</span>
             </div>
-            <img src="Dildarsayt.jpg" class="post-main-img"> <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <video controls playsinline class="post-main-content" poster="Dildarsayt.jpg">
+                <source src="almas.mp4" type="video/mp4">
+                <source src="Almas.mp4" type="video/mp4">
+            </video>
+            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
             <div class="post-content">
-                <b>dildar_official</b> پڕۆژەی نوێ لێرە دەست پێ دەکات.. 🔥
+                <b>dildar_official</b> پڕۆژەی نوێ (Almas) 💎
             </div>
         </div>
 
         <div class="post">
             <div class="post-header">
                 <div class="post-user">
-                    <img src="Dldar.jpg" class="post-user-img"> <span class="post-user-name">dildar_official</span>
-                </div>
-                <span>⋮</span>
-            </div>
-            <img src="kurdistan.jpg" class="post-main-img"> <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content">
-                <b>dildar_official</b> بژی کوردستان، هەمیشە سەربەرز.. ☀️
-            </div>
-        </div>
-
-    </div>
-
-    <div class="bottom-nav">
-        <span>🏠</span>
-        <span>🔍</span>
-        <span>➕</span>
-        <span>🎬</span>
-        <img src="Dldar.jpg" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid #fff;">
-    </div>
-
-</body>
-</html>
+                    <img src="Dldar.jpg" class="post-user-img"> <span class="post-user-name">
 
