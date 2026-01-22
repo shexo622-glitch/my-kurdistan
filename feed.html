@@ -8,11 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #000; color: #fff; font-family: -apple-system, sans-serif; padding-bottom: 70px; }
         
-        /* --- شاشة الترحيب --- */
-        #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: 0.8s; }
-        .splash-logo { width: 100px; height: 100px; border-radius: 50%; border: 2px solid #FFD700; }
-        .fade-out { opacity: 0; pointer-events: none; }
-
         .top-nav { position: sticky; top: 0; background: #000; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; border-bottom: 1px solid #262626; z-index: 100; }
         .logo { font-size: 22px; font-weight: bold; color: #FFD700; }
         
@@ -20,10 +15,9 @@
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
 
-        /* --- الحيلة البرمجية هنا (قلب الترتيب) --- */
         #feed-container {
             display: flex;
-            flex-direction: column-reverse; /* هذا السطر يجعل الأخير يظهر أولاً */
+            flex-direction: column-reverse; 
         }
 
         .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
@@ -37,13 +31,6 @@
     </style>
 </head>
 <body>
-
-    <div id="splash-screen">
-        <div class="splash-content">
-            <img src="Dldar.jpg" class="splash-logo">
-            <div style="color:#FFD700; margin-top:10px; font-weight:bold; text-align:center;">DILDAR</div>
-        </div>
-    </div>
 
     <div class="top-nav">
         <span>📷</span>
@@ -59,7 +46,6 @@
     </div>
 
     <div id="feed-container">
-
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
             <img src="Dildarsayt.jpg" class="post-main-content">
@@ -73,19 +59,12 @@
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
             <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
         </div>
-
-        </div>
+    </div>
 
     <div class="bottom-nav">
         <span>🏠</span><span>🔍</span><span>➕</span><span>🎬</span>
         <img src="Dldar.jpg" style="width: 26px; height: 26px; border-radius: 50%;">
     </div>
-
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() { document.getElementById('splash-screen').classList.add('fade-out'); }, 2000);
-        });
-    </script>
 
 </body>
 </html>
