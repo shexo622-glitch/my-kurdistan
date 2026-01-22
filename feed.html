@@ -14,7 +14,10 @@
         .story-ring { width: 66px; height: 66px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #bc1888); display: flex; justify-content: center; align-items: center; padding: 2px; }
         .story-img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; object-fit: cover; }
         .story-name { font-size: 11px; margin-top: 5px; color: #fff; }
+        
+        /* الترتيب العكسي: المنشور الأخير في الكود يظهر أولاً فوق */
         #feed-container { display: flex; flex-direction: column-reverse; }
+        
         .post { border-bottom: 1px solid #262626; width: 100%; padding-bottom: 10px; background: #000; }
         .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
         .post-user-img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #FFD700; }
@@ -37,7 +40,6 @@
             <div class="story-ring"><img src="Qasad.jpg" class="story-img"></div>
             <span class="story-name">Qasad</span>
         </div>
-
         <div class="story" data-time="2026-01-22T16:00:00" onclick="window.open('kurd.jpg', '_blank')">
             <div class="story-ring"><img src="kurd.jpg" class="story-img"></div>
             <span class="story-name">Kurd</span>
@@ -47,13 +49,6 @@
     <div id="feed-container">
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
-            <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
-            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> Almas Project 💎</div>
-        </div>
-
-        <div class="post">
-            <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
             <img src="Dildarsayt.jpg" class="post-main-content">
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
             <div class="post-content"><b>dildar_official</b> My Kurdistanê ☀️</div>
@@ -61,9 +56,16 @@
 
         <div class="post">
             <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
-            <img src="Dildarsayt.jpg" class="post-main-content">
+            <img src="Kurdistan.jpg" class="post-main-content">
             <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
-            <div class="post-content"><b>dildar_official</b> Kurdistan ✨</div>
+            <div class="post-content"><b>dildar_official</b> Welatê min ☀️</div>
+        </div>
+
+        <div class="post">
+            <div class="post-header"><img src="Dldar.jpg" class="post-user-img"><b>dildar_official</b></div>
+            <video controls playsinline class="post-main-content"><source src="almas.mp4" type="video/mp4"></video>
+            <div class="post-actions"><span>❤️</span><span>💬</span><span>✈️</span></div>
+            <div class="post-content"><b>dildar_official</b> Almas Project 💎 (New Video)</div>
         </div>
     </div>
 
@@ -73,21 +75,17 @@
     </div>
 
     <script>
-        // كود برمجي يحذف الستوري تلقائياً بعد 24 ساعة
         function checkStories() {
             const stories = document.querySelectorAll('.story');
             const now = new Date();
             stories.forEach(story => {
                 const postTime = new Date(story.getAttribute('data-time'));
                 const diff = (now - postTime) / (1000 * 60 * 60); 
-                if (diff >= 24) {
-                    story.style.display = 'none'; 
-                }
+                if (diff >= 24) { story.style.display = 'none'; }
             });
         }
         checkStories();
     </script>
-
 </body>
 </html>
 
