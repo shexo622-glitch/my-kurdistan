@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dstar 🌟 - Kurdistan</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('Kurdistan-flag.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            color: white; text-align: center; min-height: 100vh;
+        }
+
+        #welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #000; display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .moving-star {
+            font-size: 80px; 
+            filter: drop-shadow(0 0 20px gold);
+            animation: star-pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes star-pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px gold); }
+            50% { transform: scale(1.3) rotate(15deg); filter: drop-shadow(0 0 40px gold); }
+        }
+
+        .brand-name { color: #FFD700; font-size: 50px; text-shadow: 0 0 25px gold; font-weight: bold; }
+
+        .fade-out { opacity: 0 !important; visibility: hidden !important; }
+
+        .enter-btn {
+            display: inline-block; margin: 30px 0; padding: 15px 60px;
+            font-size: 24px; font-weight: bold; color: #ffffff; text-decoration: none;
+            background: linear-gradient(45deg, rgba(46, 204, 113, 0.6), rgba(39, 174, 96, 0.9));
+            border: 2px solid #FFD700; border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease; backdrop-filter: blur(5px);
+        }
+        .enter-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 30px #FFD700;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+
+        .video-container { width: 90%; max-width: 560px; margin: 30px 0; }
+        iframe { border-radius: 15px; border: 2px solid #FFD700; width: 100%; }
+
+        .anthem-container {
+            background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
+            padding: 25px; border-radius: 20px; border: 1px solid #FFD700;
+            width: 85%; max-width: 500px; margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <div style="text-align: center;">
+            <div class="moving-star">🌟</div>
+            <h1 style="color: #fff; margin-top: 20px;">بەخێربێی بۆ ماڵپەڕی فەرمی</h1>
+            <div class="brand-name">Dstar</div>
+        </div>
+    </div>
+
+    <div style="font-size: 60px; font-weight: bold; color: #FFD700; margin-top: 50px; text-shadow: 0 0 20px rgba(255,215,0,0.5);">Dstar 🌟</div>
+    <h2 style="text-shadow: 2px 2px 8px #000;">Ez Kurdim û bi nasnameya xwe serbilind im</h2>
+    
+    <a href="feed.html" class="enter-btn">چوونە ژوورەوە ⮕</a>
+
+    <div class="video-container">
+        <iframe height="315" src="https://www.youtube.com/embed/DYQ4wReivFI" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="anthem-container">
+        <div style="color: #FFD700; font-size: 24px; margin-bottom: 10px;">سروودی نیشتمانی</div>
+        <pre style="color: #f0f0f0; white-space: pre-line; font-family: inherit;">
+            ئەی ڕەقیب ھەر ماوە قەومی کورد زمان
+            نایشکێنێ دانەیی تۆپی زەمان
+            کەس نەڵێ کورد مردووە، کورد زیندووە
+            زیندووە قەت نانەوێ ئاڵاکەمان
+        </pre>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('welcome-screen').classList.add('fade-out');
+        }, 2500);
+    </script>
+</body>
+</html>
+
